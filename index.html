@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Creating PDF from HTML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4a3f940671.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="script.js"></script> 
+</head>
+<body>
+    <div class ="container">
+        <div class="wrap">
+            <span class="title">LETTRE D'ACCOMPAGNEMENT</span>
+            <div id="wrapper">
+                <label for="switch" class="text" id="contactlabel">Connaissez-vous le contact de la société?</label>
+                <!-- Rounded switch -->
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="assistant inputwrap inputvalidate">
+                <select name="assistant" id="assistant" class="input1">
+                    <option value="Null" disabled selected>Sélectionnez l'Assistant Commerciale</option>
+                    <option value="0">BAYART Laetitia</option>
+                    <option value="1">COCHET Floriane</option>
+                    <option value="2">PELLEN Sakina</option>
+                    <option value="3">PICARD Valerie</option>
+                    <option value="4">PIGNARD Marie</option>
+                    <option value="5">VASIC Slobodan</option>
+                </select>
+            </div> 
+            <div class="productmanager inputwrap inputvalidate">
+                <select name="productmanager" id="productmanager" class="input1">
+                    <option value="Null" disabled selected>Sélectionnez le Chef de Produit</option>
+                    <option value="0">POULETAUD Olivier</option>
+                    <option value="1">SEVELINGE Jean-Julien</option>
+                    <option value="2">VERNIER Denis</option>
+                    <option value="3">VITTE Jerome</option>
+                </select>
+            </div>  
+            <div class="responsable inputwrap inputvalidate">
+                <select name="responsable" id="responsable" class="input1">
+                    <option value="Null" disabled selected>Sélectionnez le Responsable Mise en Route</option>
+                    <option value="0">BIQUET Joel</option>
+                    <option value="1">COLIN Jacques</option>
+                    <option value="2">THOMASSE Xavier</option>
+                    <option value="3">VIALETON Thomas</option>
+                </select>
+            </div>
+            <div class="client inputwrap inputvalidate">
+                <input type="text" id="client" class="input1" placeholder="Nom de la Société Cliente">
+            </div>
+            <div class="gender inputwrap inputvalidate" style="display:none" id="displaygender">
+                <select name="gender" id="gender" class="input1">
+                    <option value="Null" disabled selected>Sélectionnez le Sexe du Contact</option>
+                    <option value="M.">Monsieur</option>
+                    <option value="Mme.">Madame</option>
+                </select>
+            </div>
+            <div class="contact inputwrap inputvalidate" style="display: none" id="displaycontact">
+                <input type="text" id="contact" class="input1" placeholder="Nom de Famille Uniquement du Contact" onkeyup="this.value = this.value.toUpperCase();">
+            </div>
+            <div class="street inputwrap inputvalidate">
+                <input type="text" id="street" class="input1" placeholder="Nom de Rue">
+            </div>
+            <div class="post inputwrap inputvalidate">
+                <input type="text" id="post" class="input1" placeholder="Code Postale">
+            </div>
+            <div class="country inputwrap inputvalidate">
+                <input type="text" id="country" class="input1" placeholder="Pays">
+            </div>
+            <div class="machine inputwrap inputvalidate">
+                <input type="text" id="machine" class="input1" placeholder="Type de Machine">
+            </div>
+
+            <div id="main">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="top" id="changeclient">
+                    Client
+                </div>
+                <div class="top" id="changecontact">
+                    Contact 
+                </div>
+                <div class="top" id="changestreet">
+                    Street Number
+                </div>
+                <div class="top" id="changepost">
+                    Post Code
+                </div>
+                <div class="top" id="changecountry">
+                    Country
+                </div>
+                <br>
+                <br>
+                <p>
+                    Cher Client,
+                </p>
+                <p>
+                    Vous venez d'acquérir une <em id="changemachine">Machine </em> DMG
+                    MORI et nous vous en remercions.
+                </p>
+                <p>
+                    <strong>
+                        <u>
+                            Merci de bien vouloir nous renvoyer la liasse documentaire
+                            ci-jointe dûment signée par
+                        </u>
+                        <br>
+                        <u>
+                            courrier ou à l'addresse suivante : <u id="emailcontact">floriane.cochet@dmgmori.com</u>
+                        </u>
+                    </strong>
+                </p>
+                <p>
+                    Afin de vous permettre de recevoir cette machine dans les meilleures
+                    conditions,
+                    <br>
+                    DMG MORI France met à votre service l'organisation suivante :
+                </p>
+                <p>
+                    *Pour toute demande concernant 
+                    <strong>
+                        <u>
+                            le suivi de dossier,
+                        </u>
+                    </strong>
+                    jusqu'à l'arrivée de votre machine, vous 
+                    <br>
+                    pourrez continuer à contacter
+                </p>
+                <p class="person">
+                    <strong id="changeproductmanager">Olivier POULETAUD</strong>
+                    <b class="hide" id="aproductmanager">aaaaaaaaaaaaaaaaa</b>
+                    <u id="changeproductmanagernum">01 39 94 68 39</u>
+                </p>
+                <p class="info">
+                    Chef de Produit
+                    <b class="hide">aaaaaaaaaaaaaaaaaaaaaa</b>
+                    <a id="changeproductmanageremail" href="mailto:olivier.pouletaud@dmgmori.com">
+                        olivier.pouletaud@dmgmori.com
+                    </a>
+                </p>
+                <div>
+                    ou
+                </div>
+                <p class="person">
+                    <strong id="changecommercial">Floriane COCHET</strong>
+                    <b class="hide" id="acommercial">aaaaaaaaaaaaaaaaaaa</b>
+                    <u id="changecommercialnum"> 01 39 94 68 28</u>
+                </p>
+                <p class="info">
+                    Assistante Commerciale
+                    <b class="hide">aaaaaaaaaaaaaaa</b>
+                    <a id="changecommercialemail" href="mailto:floriane.cochet@dmgmori.com">
+                        floriane.cochet@dmgmori.com
+                    </a>
+                </p>
+
+                <br>
+                <div>
+                * Pour tous les points relatifs    <strong>à la formation, à la mise en route</strong>, vous pouvez
+                    appeler :
+                </div>
+                <p class="person">
+                    <strong id="changeresponsable">Olivier POULETAUD</strong>
+                    <b class="hide" id="aresponsable">aaaaaaaaaaaaaaaaa</b>
+                    <u id="changeresponsablenum">01 39 94 68 39</u>
+                </p>
+                <p class="info">
+                    Responsable Mises en Route
+                    <b class="hide">aaaaaaaaaa.</b>
+                    <a id="changeresponsableemail" href="mailto:olivier.pouletaud@dmgmori.com">
+                        olivier.pouletaud@dmgmori.com
+                    </a>
+                </p>
+                <div>
+                    ou
+                </div>
+                <p class="person">
+                    <strong>Margaux CAGNARD</strong>
+                    <b class="hide">aaaaaaaaaaaaaaaaa.</b>
+                    01 39 94 68 04
+                </p>
+                <p class="info">
+                    Assistance Service Formation
+                    <b class="hide">aaaaaaaa.....</b>
+                    <a href="mailto:margaux.cagnard@dmgmori.com">
+                        margaux.cagnard@dmgmori.com
+                    </a>
+                </p>
+                <br>
+                <div>
+                    * En ce qui concerne le <strong>S.A.V.</strong>, nous vous demandons
+                    de vous mettre en rapport avec
+                </div>
+                <br>
+                <p class="person">
+                    <strong>Notre Service HOTLINE</strong>
+                    <b class="hide">aaaaaaaaaaaaaa.</b>
+                    08 10 90 20 20
+                </p>
+                <br>
+                <div>
+                * Enfin, pour toutes les questions concernant    <strong>les pièces détachées</strong>, veuillez-vous adresser à
+                </div>
+                <p class="person">
+                    <strong>Magali TAGLIAFERRI</strong>
+                    <b class="hide">aaaaaaaaaaaaaaaa.</b>
+                    06 33 91 32 35
+                </p>
+                <p class="info">
+                    Responsable Pièces Détachées
+                    <b class="hide">aaaaaaaaa</b>
+                    <a href="mailto:magali.tagliaferri@dmgmori.com">
+                        magali.tagliaferri@dmgmori.com
+                    </a>
+                </p>
+                <br>
+                <div>
+                    Nous mettrons tout en oeuvre pour traiter votre demande dans les meilleurs
+                    délais.
+                </div>
+                <p>
+                    <strong>DMG MORI FRANCE</strong>
+                </p>
+            </div>
+         
+            <div class="sendcontainer">
+                <button class="sendbutton" onclick="javascript:genPDF();openPopup();">
+                    <span>
+                        <i class="fa-solid fa-download"></i>
+                        <strong class="text">Download</strong>
+                    </span>
+                </button>
+            </div>
+            <div class="popup" id="popup">
+                <img src="https://thumbs.gfycat.com/CookedIlliterateIcelandgull-max-1mb.gif">
+                <h2>Thank You!</h2>
+                <button type="button" onclick="closePopup();" id="text">CLOSE</button>
+            </div>
+            <script>
+                let popup = document.getElementById("popup");
+                function openPopup(){
+                    if(counter !== 0)
+                    {
+                        popup.classList.add("open-popup");
+                        counter = 0;
+                    }
+                    else{}
+                }
+                
+                function closePopup(){
+                    popup.classList.remove("open-popup");
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
