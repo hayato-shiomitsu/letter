@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Creating PDF from HTML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4a3f940671.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="script.js"></script> 
+</head>
+<body>
+    <div class ="container">
+        <div class="wrap">
+            <span class="title">LETTRE D'ACCOMPAGNEMENT</span>
+            <div id="wrapper">
+                <label for="switch" class="text" id="contactlabel">Connaissez-vous le contact de la société?</label>
+                <!-- Rounded switch -->
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="machine inputwrap inputvalidate">
+                <select name="number" id="number" class="input1">
+                    <option value="Null" disabled selected>Combien de machines/automatisations différentes ?</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="machine inputwrap inputvalidate" style="display:none" id="display1">
+                <select name="number" id="number1" class="input1">
+                    <option value="Null" disabled selected>Combien de machines/automatisations 1 ?</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="machine inputwrap inputvalidate" style="display:none" id="displaytext1">
+                <input type="text" id="machine1" class="input1" placeholder="Type de Machine/Automation 1">
+            </div>
+            <div class="machine inputwrap inputvalidate" style="display:none" id="display2">
+                <select name="number" id="number2" class="input1">
+                    <option value="Null" disabled selected>Combien de machines/automatisations 2</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="machine inputwrap inputvalidate" style="display:none" id="displaytext2">
+                <input type="text" id="machine2" class="input1" placeholder="Type de Machine/Automation 2">
+            </div>
+            <div class="machine inputwrap inputvalidate" style="display:none" id="displaytext3">
+                <select name="number" id="number3" class="input1">
+                    <option value="Null" disabled selected>Combien de machines/automatisations 3?</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="machine inputwrap inputvalidate" style="display:none" id="display3">
+                <input type="text" id="machine3" class="input1" placeholder="Type de Machine/Automation 3">
+            </div>
+            <div class="assistant inputwrap inputvalidate">
+                <select name="assistant" id="assistant" class="input1">
+                    <option value="Null" disabled selected>Sélectionnez l'Assistant Commercial</option>
+                    <option value="0">BAYART Laetitia</option>
+                    <option value="1">BARROS Adeline</option>
+                    <option value="2">COCHET Floriane</option>
+                    <option value="3">PELLEN Sakina</option>
+                    <option value="4">PICARD Valerie</option>
+                    <option value="5">PIGNARD Marie</option>
+                    <option value="6">VASIC Slobodan</option>
+                </select>
+            </div> 
+            <div class="productmanager inputwrap inputvalidate">
+                <select name="productmanager" id="productmanager" class="input1">
+                    <option value="Null" disabled selected>Sélectionnez le Chef de Produit</option>
+                    <option value="0">DE GASQUET Remy</option>
+                    <option value="1">POULETAUD Olivier</option>
+                    <option value="2">SEVELINGE Jean-Julien</option>
+                    <option value="3">VASSENT Sebastien</option>
+                    <option value="4">VITTE Jerome</option>
+                </select>
+            </div>  
+            <div class="responsable inputwrap inputvalidate">
+                <select name="responsable" id="responsable" class="input1">
+                    <option value="Null" disabled selected>Sélectionnez le Responsable Mise en Route</option>
+                    <option value="0">BIQUET Joel</option>
+                    <option value="1">COLIN Jacques</option>
+                    <option value="2">HEGO Yannick</option>
+                    <option value="3">THOMASSE Xavier</option>
+                    <option value="4">VIALETON Thomas</option>
+                </select>
+            </div>
+            <div class="client inputwrap inputvalidate">
+                <input type="text" id="client" class="input1" placeholder="Nom de la Société Cliente">
+            </div>
+            <div class="gender inputwrap inputvalidate" style="display:none" id="displaygender">
+                <select name="gender" id="gender" class="input1">
+                    <option value="Null" disabled selected>Civilité du Contact</option>
+                    <option value="Monsieur">Monsieur</option>
+                    <option value="Madame">Madame</option>
+                </select>
+            </div>
+            <div class="contact inputwrap inputvalidate" style="display: none" id="displaycontact">
+                <input type="text" id="contact" class="input1" placeholder="Nom de Famille Uniquement du Contact" onkeyup="this.value = this.value.toUpperCase();">
+            </div>
+            <div class="street1 inputwrap inputvalidate">
+                <input type="text" id="street1" class="input1" placeholder="Adresse 1">
+            </div>
+            <div class="street2 inputwrap inputvalidate">
+                <input type="text" id="street2" class="input1" placeholder="Adresse 2">
+            </div>
+            <div class="post inputwrap inputvalidate">
+                <input type="text" id="post" class="input1" placeholder="Code Postal">
+            </div>
+            <div class="city inputwrap inputvalidate">
+                <input type="text" id="city" class="input1" placeholder="Ville">
+            </div>
+            <div class="country inputwrap inputvalidate">
+                <input type="text" id="country" class="input1" placeholder="Pays">
+            </div>
+
+            <div id="main">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="top" id="changeclient">
+                    Client
+                </div>
+                <div class="top" id="changecontact">
+                    Contact 
+                </div>
+                <div class="top" id="changestreet1">
+                    Street Number
+                </div>
+                <div class="top" id="changestreet2">
+                    Street Number
+                </div>
+                <div class="top" id="changepost">
+                    Post Code
+                </div>
+                <div class="top" id="changecountry">
+                    Country
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <p>
+                    Cher Client,
+                </p>
+                <p>
+                    Vous venez d'acquérir <em id="changemachine">Machine </em> et nous vous en remercions.
+                </p>
+                <p>
+                    <strong>
+                        <u>
+                            Merci de bien vouloir nous renvoyer la liasse documentaire
+                            ci-jointe dûment signée par courrier ou à l'addresse
+                        </u>
+                        <br>
+                        <u>
+                            suivante : <u id="emailcontact">floriane.cochet@dmgmori.com</u>
+                        </u>
+                    </strong>
+                </p>
+                <p>
+                    Afin de vous permettre de recevoir cette machine dans les meilleures
+                    conditions,
+                    <br>
+                    DMG MORI France met à votre service l'organisation suivante :
+                </p>
+                <p>
+                    *Pour toute demande concernant 
+                    <strong>
+                        <u>
+                            le suivi de dossier,
+                        </u>
+                    </strong>
+                    jusqu'à l'arrivée de votre machine, veuillez 
+                    contacter :
+                </p>
+                <p class="person">
+                    <strong id="changeproductmanager">Olivier POULETAUD</strong>
+                    <b class="hide" id="aproductmanager">aaaaaaaaaaaaaaaaa</b>
+                    <u id="changeproductmanagernum">01 39 94 68 39</u>
+                </p>
+                <p class="info">
+                    Chef de Produit
+                    <b class="hide">aaaaaaaaaaaaaaaaaaaaaa</b>
+                    <a id="changeproductmanageremail" href="mailto:olivier.pouletaud@dmgmori.com">
+                        olivier.pouletaud@dmgmori.com
+                    </a>
+                </p>
+                <div>
+                    ou
+                </div>
+                <p class="person">
+                    <strong id="changecommercial">Floriane COCHET</strong>
+                    <b class="hide" id="acommercial">aaaaaaaaaaaaaaaaaaa</b>
+                    <u id="changecommercialnum"> 01 39 94 68 28</u>
+                </p>
+                <p class="info">
+                    Assistante Commerciale
+                    <b class="hide">aaaaaaaaaaaaaaa</b>
+                    <a id="changecommercialemail" href="mailto:floriane.cochet@dmgmori.com">
+                        floriane.cochet@dmgmori.com
+                    </a>
+                </p>
+
+                <br>
+                <div>
+                * Pour tous les points relatifs    <strong>à la formation, à la mise en route</strong>, veuillez contacter :
+                </div>
+                <p class="person">
+                    <strong id="changeresponsable">Olivier POULETAUD</strong>
+                    <b class="hide" id="aresponsable">aaaaaaaaaaaaaaaaa</b>
+                    <u id="changeresponsablenum">01 39 94 68 39</u>
+                </p>
+                <p class="info">
+                    Responsable Mises en Route
+                    <b class="hide">aaaaaaaaaa..</b>
+                    <a id="changeresponsableemail" href="mailto:olivier.pouletaud@dmgmori.com">
+                        olivier.pouletaud@dmgmori.com
+                    </a>
+                </p>
+                <div>
+                    ou
+                </div>
+                <p class="person">
+                    <strong>Margaux CAGNARD</strong>
+                    <b class="hide">aaaaaaaaaaaaaaaaa.</b>
+                    01 39 94 68 04
+                </p>
+                <p class="info">
+                    Assistance Service Formation
+                    <b class="hide">aaaaaaaa.....</b>
+                    <a href="mailto:margaux.cagnard@dmgmori.com">
+                        margaux.cagnard@dmgmori.com
+                    </a>
+                </p>
+                <br>
+                <div>
+                    * En ce qui concerne le <strong>S.A.V.</strong>, nous vous demandons
+                    de vous mettre en relation avec :
+                </div>
+                <br>
+                <p class="person">
+                    <strong>Notre Service HOTLINE</strong>
+                    <b class="hide">&puncsp;aaaaaaaaaaaaaa.</b>
+                    08 10 90 20 20
+                </p>
+                <br>
+                <div>
+                * Enfin, pour toutes les questions concernant    <strong>les pièces détachées</strong>, veuillez-vous adresser à :
+                </div>
+                <p class="person">
+                    <strong>Magali TAGLIAFERRI</strong>
+                    <b class="hide">aaaaaaaaaaaaaaaa.</b>
+                    06 33 91 32 35
+                </p>
+                <p class="info">
+                    Responsable Pièces Détachées
+                    <b class="hide">aaaaaaaaa</b>
+                    <a href="mailto:magali.tagliaferri@dmgmori.com">
+                        magali.tagliaferri@dmgmori.com
+                    </a>
+                </p>
+                <br>
+                <div>
+                    Nous mettrons tout en oeuvre pour traiter votre demande dans les meilleurs
+                    délais.
+                </div>
+                <p>
+                    <strong>DMG MORI France</strong>
+                </p>
+            </div>
+         
+            <div class="sendcontainer">
+                <button class="sendbutton" onclick="javascript:genPDF();openPopup();">
+                    <span>
+                        <i class="fa-solid fa-download"></i>
+                        <strong class="text">Download</strong>
+                    </span>
+                </button>
+            </div>
+            <div class="popup" id="popup">
+                <img src="https://thumbs.gfycat.com/CookedIlliterateIcelandgull-max-1mb.gif">
+                <h2>Thank You!</h2>
+                <button type="button" onclick="closePopup();" id="text">CLOSE</button>
+            </div>
+            <script>
+                let popup = document.getElementById("popup");
+                function openPopup(){
+                    if(counter !== 0)
+                    {
+                        popup.classList.add("open-popup");
+                        counter = 0;
+                    }
+                    else{}
+                }
+                
+                function closePopup(){
+                    popup.classList.remove("open-popup");
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

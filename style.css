@@ -1,0 +1,379 @@
+* {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f2f2f2;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    background-color: #f2f2f2;
+}
+
+.wrap {
+    box-sizing: border-box;
+    width: 550px;
+    background: transparent;
+    padding: 50px 0px 160px 0px;
+}
+
+.inputwrap {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 31px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.inputvalidate {
+    position: relative;
+}
+
+.input1 {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: #fff;
+    border-radius: 31px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #8f8fa1;
+    line-height: 1.2;
+}
+
+select.input1 {
+    height: 62px;
+    padding: 0 35px 0 35px;
+}
+
+input.input1 {
+    height: 62px;
+    padding: 0 35px 0 35px;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+select {
+    outline: none;
+    border: none;
+}
+
+.focusinput {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    border-radius: 31px;
+    background-color: #fff;
+    pointer-events: none;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8f8fa1;
+  opacity: 1; /* Firefox */
+  text-transform: none;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #8f8fa1;
+  text-transform: none;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #8f8fa1;
+  text-transform: none;
+}
+
+div {
+    display: block;
+}
+
+.title {
+    display: block;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #403866;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 49px;
+}
+
+/*HTML of the PDF*/
+.assistant, .productmanager, .responsable, .client, .contact, .gender, .street1, .street2, .post, .city, .country, .machine{
+    display: block;
+}
+
+#main{
+    width: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    display: none;
+}
+
+#changeclient{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.hide{
+    color: white;
+}
+
+.top{
+    margin-left: 600px;
+}
+
+
+.info{
+    margin-left: 200px;
+}
+
+.person {
+    margin-left: 333px;
+}
+
+.number{
+    width: 50%;
+    height: 100vh;
+    text-align: right;
+}
+
+/*Switch*/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  bottom: 8px;
+  right: 25px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*Download Button*/
+.sendcontainer {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 10px;
+}
+.sendbutton {
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none !important;
+    border: none;
+    background: transparent;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 150px;
+    height: 62px;
+    background-color: transparent;
+    border-radius: 31px;
+    font-family: Ubuntu-Bold;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+}
+
+.sendbutton::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    border-radius: 31px;
+    background-color: #827ffe;
+    pointer-events: none;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+/*Donwload Text*/
+.text{
+    border-radius: 31px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#contactlabel{
+    padding: 0 35px 0 35px;
+    color: #ff0000;
+    font-size: 18px;
+}
+
+/*Popup*/
+.popup {
+    z-index: 1;
+    width: 400px;
+    background: #a2a0e7;
+    border-radius:6px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    border-radius: 31px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    visibility: hidden;
+    transition: transfrom 0.4s, top 0.4s;
+}
+
+.popup img {
+    width: 340px;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popup h2 {
+    font-size: 38px;
+    color: white;
+    font-weight: 500;
+    margin: -58px 0 10px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 0;
+    background: #49d67a;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+.open-popup {
+    top: 35%;
+    visibility: visible;
+    transform: translate(-50%,-50%) scale(1);
+}
